@@ -1,9 +1,13 @@
-from selene.support.shared import browser
-from selene.support import by
-from selene.support.conditions import be
-import pytest
+from selene import browser, by, be
+import allure
+from allure_commons.types import Severity
 
-
+@allure.tag('Web')
+@allure.severity(Severity.TRIVIAL)
+@allure.label('owner', 'Maksimov')
+@allure.description('Тест без степов и декоратора')
+@allure.feature('Поиск issues в Github')
+@allure.link('https://github.com', name='Testing')
 def test_github():
     browser.open("https://github.com")
     browser.element(".header-search-button").click()
